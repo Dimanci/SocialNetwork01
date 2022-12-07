@@ -1,8 +1,9 @@
 import React from "react";
+import s from './Profile.module.css'
 
 const Profile = () => {
     return (
-        <div className='content'>
+        <div className={s.content}>
             <div><img id='hogwarts' src='http://i.imgur.com/CMWTqJx.jpg?1'/></div>
             <div>
                 Ava + description
