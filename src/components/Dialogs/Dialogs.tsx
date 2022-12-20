@@ -19,22 +19,38 @@ const MessageItem = (props: MessagePropsType) => {
     return <div className={s.dialogs}>{props.message}</div>
 }
 const Dialogs = () => {
+    const DialogsData = [
+        {id: 1, name: 'Dima'},
+        {id: 2, name: 'Katya'},
+        {id: 3, name: 'Maksim'},
+        {id: 4, name: 'Olivia'},
+    ]
+    const MessageData = [
+        {id: 1, message: 'Hello'},
+        {id: 2, message: 'What is going on!'},
+        {id: 3, message: 'What time is it now?'},
+        {id: 4, message: 'New movie was released.'},
+    ]
     return (
         <div className={s.alldialogs}>
             <div className={s.dialogs}>
-                <DialogItem name={'Dima'} id={1}/>
-                <DialogItem name={'Katya'} id={2}/>
-                <DialogItem name={'Maksim'} id={3}/>
-                <DialogItem name={'Olivia'} id={4}/>
+                {DialogsData.map((d, id: number) => {
+                    return (
+                        <div key={d.id} className={s.dialog}>
+                            <DialogItem name={d.name} id={d.id}/>
+                        </div>)
+                })}
             </div>
             <div className={s.messages}>
-                <MessageItem message={'Hello'}/>
-                <MessageItem message={'What is going on!'}/>
-                <MessageItem message={'What time is it now?'}/>
-                <MessageItem message={'New movie was released.'}/>
+                {MessageData.map((m, id) => {
+                    return (
+                        <div key={m.id} className={s.message}>
+                            <MessageItem message={m.message}/>
+                        </div>)
+                })}
             </div>
         </div>
-    );
+    )
 };
 
 export default Dialogs;
