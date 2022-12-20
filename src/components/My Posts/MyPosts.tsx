@@ -8,6 +8,14 @@ const MyPosts = () => {
         {id: 2, message: 'What time is it now?', likesCount: 25},
         {id: 3, message: 'I bought a new car!!!', likesCount: 55},
     ]
+    let postElement = AllPosts.map((p, id) => {
+        return (
+            <div key={p.id}>
+                <Post message={p.message} likesCount={p.likesCount}/>
+            </div>
+        )
+    })
+
     return (
         <div className={s.myposts}>
             <h3>My posts</h3>
@@ -18,13 +26,7 @@ const MyPosts = () => {
             <div>
                 <button>Add Post</button>
             </div>
-            {AllPosts.map((p, id) => {
-                return (
-                    <div key={p.id}>
-                        <Post message={p.message} likesCount={p.likesCount}/>
-                    </div>
-                )
-            })}
+            {postElement}
         </div>
     )
 }
